@@ -1,0 +1,1 @@
+export const mobileWidth: string = '(max-width:550px)'

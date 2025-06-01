@@ -1,0 +1,21 @@
+.menuCell {
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    background-color: transparent;
+}
+
+.menuCell:hover {
+    background-color: #d4d4d4;
+    color: #e6353b
+}
+
+.menuCellIcon {
+    font-size: x-large;
+}
+
+@media only screen and (max-width: 550px) {
+    .menuCell {
+        padding-right: 10%;
+    }
+}
