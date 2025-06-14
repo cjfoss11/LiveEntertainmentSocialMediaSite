@@ -1,10 +1,11 @@
 "use client"
-import {Box, Button, Flex, Grid, GridItem, HStack, Text, VStack} from "@chakra-ui/react"
+import {Box, Flex, Grid, GridItem, HStack, VStack} from "@chakra-ui/react"
 import NavigationBar from "./navigationBar/navigationBar"
-import { FaPlus } from "react-icons/fa6";
+
 import SearchBar from "./SearchBar";
 import { useMediaQuery } from 'react-responsive';
 import { mobileWidth } from "./constants";
+import NewPostModal from "./new/modal";
 
 interface ContentContainerProps {
     children: React.ReactNode
@@ -31,12 +32,7 @@ export default function ContentContainer({...props}: ContentContainerProps) {
                     >
                         <HStack width="100%">
                             <SearchBar onSearch={handleSearchCallback}/>
-                            <Button>
-                                <HStack>
-                                <FaPlus fontSize="larger"/>
-                                <Text>New Post</Text>
-                                </HStack>
-                            </Button>
+                            <NewPostModal/>   
                         </HStack>
                         {props.children}
                     </VStack>
@@ -58,5 +54,4 @@ export default function ContentContainer({...props}: ContentContainerProps) {
             </Flex>
         )
     }
-        
 }
