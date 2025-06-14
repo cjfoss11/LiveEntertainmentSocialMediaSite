@@ -30,6 +30,7 @@ export default function NewPostModal() {
     };
 
   const handleSubmit = async () => {
+    
     if (!file) { return }
     try {
       const formData = new FormData()
