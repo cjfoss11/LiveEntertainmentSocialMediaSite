@@ -1,12 +1,10 @@
-import {ChakraProvider, VStack, Text, HStack, Skeleton} from "@chakra-ui/react"
+import {VStack, Text, HStack, Skeleton} from "@chakra-ui/react"
 import styles from "./pages/pages.module.css"
-//import HomePage from "./pages/HomePage"
 import ContentContainer from "./contentContainer";
 
 export default function Home() {
-  return (
-    <ChakraProvider>
-      <ContentContainer>
+    return (
+        <ContentContainer>
           <VStack width="100%" minHeight={"100vh"}>
             <VStack width="100%">
                 <Text className={styles.sectionTitle}>
@@ -37,7 +35,5 @@ export default function Home() {
             </VStack>
         </VStack>
       </ContentContainer>
-    </ChakraProvider>
-
-  );
+    );
 }
