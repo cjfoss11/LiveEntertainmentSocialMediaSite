@@ -1,0 +1,11 @@
+.imageContainer:hover .hiddenOverlay {
+    display: flex;
+    border-radius: 5;
+}
+
+.hiddenOverlay {
+    display: none;
+    align-items:flex-start;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.33);
+}

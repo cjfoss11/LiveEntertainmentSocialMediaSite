@@ -49,6 +49,8 @@ export default function NewPostModal() {
     }
 
     handleRefreshCallback(!refreshPosts)
+    setFile(null)
+    setImageSrc(null)
     onClose()    
   };
 
