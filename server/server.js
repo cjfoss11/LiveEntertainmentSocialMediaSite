@@ -3,14 +3,14 @@ const cors = require('cors');
 const multer = require('multer')
 const path = require('path');
 const mysql = require('mysql2');
-const sharp = require('sharp');
+const fs = require('fs');
 const app = express();
 const port = 8080;
 
 
 app.use(cors({
     origin: true,
-    methods: ["GET", "POST"],
+    methods: ["GET", "POST, DELETE"],
     credentials: true
 }));
 
@@ -96,6 +96,48 @@ app.get('/userPosts', (req, res) => {
         console.log(result)
     });
 });
+
+
+app.delete('/userPosts/:post_id', (req, res) => {
+    const postId = req.params.post_id;
+
+    // Step 1: Get the image file name from DB
+    const tableName = 'userPosts'
+    const query = `SELECT imageName FROM ${tableName} WHERE post_id = ?`;
+
+    connection.query(query, [postId], (err, results) => {
+        if (err) {
+            console.error("Error fetching image:", err);
+            return res.status(500).send('Database error.');
+        }
+
+        if (results.length === 0) {
+            return res.status(404).send('Post not found.');
+        }
+
+        const imageName = results[0].imageName;
+        const imagePath = path.join(__dirname, 'uploads/images', imageName);
+
+        fs.unlink(imagePath, (err) => {
+            if (err && err.code !== 'ENOENT') {
+                console.error("Error deleting file:", err);
+                return res.status(500).send('File deletion error.');
+            }
+
+            const deletePostQuery = 'DELETE FROM userPosts WHERE post_id = ?';
+
+            connection.query(deletePostQuery, [postId], (err) => {
+                if (err) {
+                    console.error("Error deleting post:", err);
+                    return res.status(500).send('Failed to delete post.');
+                }
+
+                res.send({ message: 'Post and image deleted successfully.' });
+            });
+        });
+    });
+});
+
 
 
 
