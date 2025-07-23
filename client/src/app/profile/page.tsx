@@ -1,5 +1,5 @@
 "use client"
-import { Box, Grid, GridItem, Skeleton, Image, Text, useDisclosure, VStack, Portal} from "@chakra-ui/react";
+import { Box, Grid, GridItem, Skeleton, Image, Text, VStack} from "@chakra-ui/react";
 import { useEffect, useState} from "react";
 import ContentContainer from "../contentContainer";
 import styles from "../pages/pages.module.css"
@@ -18,7 +18,7 @@ export interface UserPost {
 export default function Profile() {
     const [posts, setPosts] = useState<UserPost[]>([])
     const [hasFetchedPosts, setHasFetchedPosts] = useState(false)
-    const {refreshPosts, handleRefreshCallback} = useRefreshUserPosts();
+    const {refreshPosts} = useRefreshUserPosts();
     
     useEffect(() => {
         const fetchData = async () => {

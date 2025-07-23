@@ -9,7 +9,6 @@ export default function NewPostModal() {
     const closeDialog = () => {
         onClose()
     }
-
     return (
       <Dialog.Root size="cover">
           <Dialog.Trigger asChild>
