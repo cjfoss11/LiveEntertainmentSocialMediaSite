@@ -19,7 +19,7 @@ export default function FocusPostView({...props}: FocusPostViewProps) {
                         <Dialog.Title>Create a Post</Dialog.Title>
                         </Dialog.Header>
                         <Dialog.Body overflowY={"scroll"}>
-                        // content here
+                         {/* content here */}
                         </Dialog.Body>
                         <Dialog.CloseTrigger asChild>
                             <CloseButton size="sm" />
