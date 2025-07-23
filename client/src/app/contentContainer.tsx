@@ -2,7 +2,7 @@
 import {Box, Flex, Grid, GridItem, HStack, VStack} from "@chakra-ui/react"
 import NavigationBar from "./navigationBar/navigationBar"
 
-import SearchBar from "./SearchBar";
+import SearchBar from "./searchBar/SearchBar";
 import { useMediaQuery } from 'react-responsive';
 import { mobileWidth } from "./constants";
 import NewPostModal from "./new/modal";
